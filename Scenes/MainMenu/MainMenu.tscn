@@ -98,6 +98,7 @@ anchor_bottom = 1.0
 custom_constants/separation = 16
 
 [node name="Button" type="Button" parent="VBoxContainer"]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 1024.0
 margin_bottom = 20.0
@@ -107,6 +108,7 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="VBoxContainer/Button"]
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 36.0
 margin_right = 1024.0
@@ -117,6 +119,7 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="VBoxContainer/Button2"]
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 72.0
 margin_right = 1024.0
@@ -130,3 +133,4 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/MenuAppear = SubResource( 1 )
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

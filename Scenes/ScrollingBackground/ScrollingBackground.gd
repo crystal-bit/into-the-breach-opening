@@ -9,6 +9,7 @@ export(int) var distance = 750
 export(int) var duration = 5
 
 signal transition_completed
+signal transition_updated
 
 func _ready():
 	resetScene()
@@ -30,6 +31,7 @@ func moveSprites():
 
 func onTweenStep(twnObj, propertyStr, elapsedTime, value):
 	var completionRate = elapsedTime / duration
+	emit_signal("transition_updated", completionRate)
 	if completionRate == 1:
 		print("signal dispatch")
 		emit_signal("transition_completed")

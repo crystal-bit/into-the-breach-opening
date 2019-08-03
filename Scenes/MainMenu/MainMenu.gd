@@ -1,11 +1,22 @@
 extends Control
 
+signal menuAppeared
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-func _on_ScrollingBackground_transition_completed():
-	showMenu()
+	$VBoxContainer/StartGame/Bg.modulate.a = 0
+	$VBoxContainer/Options/Bg.modulate.a = 0
+	$VBoxContainer/Exit/Bg.modulate.a = 0
 
 func showMenu():
 	$AnimationPlayer.play("MenuAppear")
+	
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if (anim_name == "MenuAppear"):
+		emit_signal("menuAppeared")
+
+
+func _on_ScrollingBackground_transition_updated(completionPercentage):
+	if completionPercentage > 0.5 && $VBoxContainer/StartGame/Label.modulate.a == 0:
+		showMenu()

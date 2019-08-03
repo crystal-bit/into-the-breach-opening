@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-duration = 1
+duration = 2
 
 [node name="SkylineA" type="Sprite" parent="."]
 editor/display_folded = true
