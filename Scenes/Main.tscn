@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/ScrollingBackground/ScrollingBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/MainMenu/MainMenu.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource( 1 )]
+distance = 600
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource( 2 )]
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_top = -173.0
+margin_right = 200.0
+margin_bottom = 173.0
+
+[connection signal="transition_completed" from="ScrollingBackground" to="CanvasLayer/Menu" method="_on_ScrollingBackground_transition_completed"]
