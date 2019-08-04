@@ -8,8 +8,11 @@ export(bool) var testAnimation = false
 export(int) var distance = 750
 export(int) var duration = 5
 
+var previousMoonX
+var deltaMovement = 0
+
 signal transition_completed
-signal transition_updated
+signal transition_updated # (completionRate: float, moonXPosition: float)
 
 func _ready():
 	resetScene()
@@ -22,6 +25,7 @@ func _ready():
 		moveSprites()
 
 func moveSprites():
+	previousMoonX = $SkylineMoon.position.x
 	var movementToPositionTheMoonOnTheRight = $SkylineMoon.position.x + $SkylineMoon.get_rect().size.x * $SkylineMoon.scale.x - get_viewport_rect().size.x
 	for c in get_children():
 		if c.name != "Tween":
@@ -31,9 +35,10 @@ func moveSprites():
 
 func onTweenStep(twnObj, propertyStr, elapsedTime, value):
 	var completionRate = elapsedTime / duration
-	emit_signal("transition_updated", completionRate)
+	deltaMovement = $SkylineMoon.position.x - previousMoonX
+	previousMoonX = $SkylineMoon.position.x
+	emit_signal("transition_updated", completionRate, deltaMovement)
 	if completionRate == 1:
-		print("signal dispatch")
 		emit_signal("transition_completed")
 
 func resizeEverything():

@@ -17,6 +17,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		emit_signal("menuAppeared")
 
 
-func _on_ScrollingBackground_transition_updated(completionPercentage):
-	if completionPercentage > 0.5 && $VBoxContainer/StartGame/Label.modulate.a == 0:
+func _on_ScrollingBackground_transition_updated(completionPercentage, _moonXPos):
+	if completionPercentage > 0.75 && $VBoxContainer/StartGame/Label.modulate.a == 0:
 		showMenu()
