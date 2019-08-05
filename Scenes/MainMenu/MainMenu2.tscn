@@ -76,4 +76,7 @@ buttonText = "Exit"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/MenuAppear = SubResource( 1 )
 
+[connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

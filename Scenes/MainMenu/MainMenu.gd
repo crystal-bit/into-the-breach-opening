@@ -1,12 +1,13 @@
 extends Control
 
-signal menuAppeared
+signal menuAppeared  # TODO: refactor this into "main buttons appeared"
+signal optionsButtonClicked
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/StartGame/Bg.modulate.a = 0
-	$VBoxContainer/Options/Bg.modulate.a = 0
-	$VBoxContainer/Exit/Bg.modulate.a = 0
+	$VBoxContainer/StartGame/Button.modulate.a = 0
+	$VBoxContainer/Options/Button.modulate.a = 0
+	$VBoxContainer/Exit/Button.modulate.a = 0
 
 func showMenu():
 	$AnimationPlayer.play("MenuAppear")
@@ -20,3 +21,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_ScrollingBackground_transition_updated(completionPercentage, _moonXPos):
 	if completionPercentage > 0.75 && $VBoxContainer/StartGame/Label.modulate.a == 0:
 		showMenu()
+
+
+func _on_StartGame_pressed():
+	print("Start your game!")
+
+func _on_Options_pressed():
+	emit_signal("optionsButtonClicked")
+
+func _on_Exit_pressed():
+	get_tree().quit()

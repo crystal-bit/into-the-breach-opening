@@ -1,0 +1,101 @@
+[gd_scene format=2]
+
+[node name="Panel" type="Panel"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = -167.0
+margin_right = 167.0
+margin_bottom = 167.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 302.0
+margin_bottom = 14.0
+text = "OPTIONS"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 302.0
+margin_bottom = 22.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
+margin_top = 26.0
+margin_right = 302.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 149.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Show spaceship"
+valign = 1
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 153.0
+margin_right = 302.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
+margin_top = 54.0
+margin_right = 302.0
+margin_bottom = 70.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 149.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Volume"
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 153.0
+margin_right = 302.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+ticks_on_borders = true
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 302.0
+margin_bottom = 278.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 282.0
+margin_right = 302.0
+margin_bottom = 302.0
+
+[node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 149.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cancel"
+
+[node name="Ok" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 153.0
+margin_right = 302.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Ok"
+
