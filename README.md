@@ -2,7 +2,9 @@
 
 Opening scene recreated for a tutorial.
 
-![Preview GIF](itb.gif)
+<p align="center">
+  <img width="60%" src="https://github.com/crystal-bit/into-the-breach-opening/raw/master/itb.gif">
+</p>
 
 - `Custom tile sprite background` made with GDScript
   - Customizable *distance* and *time* parameters
