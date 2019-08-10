@@ -1,4 +1,6 @@
-# Into the Breach Opening Scene - Made with Godot 3.1
+# Into the Breach inspired Opening Scene 
+
+#### Made with Godot 3.1
 
 Opening scene recreated for a tutorial.
 
