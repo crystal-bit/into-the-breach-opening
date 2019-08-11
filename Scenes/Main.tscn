@@ -62,7 +62,16 @@ duration = 4
 position = Vector2( 116, 368 )
 scale = Vector2( 2, 2 )
 buildingTexture = ExtResource( 4 )
+speed = 0.8
 mirrorDistance = 150.0
+activate = false
+
+[node name="ScrollingBuildings" parent="." instance=ExtResource( 3 )]
+position = Vector2( 291, 290 )
+scale = Vector2( 2, 2 )
+speed = 1.0
+mirrorDistance = 200.0
+activate = false
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 editor/display_folded = true
@@ -78,11 +87,6 @@ margin_bottom = 75.0
 
 [node name="OptionsSubmenu" parent="UILayer" instance=ExtResource( 7 )]
 visible = false
-
-[node name="ScrollingBuildings" parent="." instance=ExtResource( 3 )]
-position = Vector2( 291, 290 )
-scale = Vector2( 2, 2 )
-speed = 1.0
 
 [node name="Spaceship" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
