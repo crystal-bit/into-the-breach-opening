@@ -16,3 +16,6 @@ Opening scene recreated for a tutorial.
 - Main menu transition
 - Options menu with save and load support with `FileConfig`
 
+### Assets license
+
+https://github.com/crystal-bit/into-the-breach-opening/blob/master/Assets/warped%20city%20files/public-license.txt
