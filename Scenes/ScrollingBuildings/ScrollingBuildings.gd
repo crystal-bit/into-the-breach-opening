@@ -3,7 +3,7 @@ extends Node2D
 
 export(Texture) var buildingTexture
 export(float) var speed = 0.8
-export(float, 0, 2000, 1) var mirrorDistance = 200 setget set_mirrorDistance
+export(float, 0, 2000, 0.5) var mirrorDistance = 200 setget set_mirrorDistance
 export(float, 0, 1, 0.05) var visibleHeightPercentage = 1 setget set_visibleHeightPercentage
 
 var amountScrolled = 0
@@ -35,13 +35,6 @@ func fillHorizontalSpace(sprite):
 func setVerticalPosition():
 	position.y = get_viewport_rect().size.y - 2 * $Sprite.get_rect().size.y * $Sprite.scale.y * visibleHeightPercentage
 
-#func spawnBuilding():
-#	var spawnedBuilding = spriteOnTheFarRight.duplicate(DUPLICATE_USE_INSTANCING)
-#	spawnedBuilding.position.x = spriteOnTheFarRight.position.x + spriteOnTheFarRight.get_rect().size.x * spriteOnTheFarRight.scale.x + mirrorDistance
-#	spriteOnTheFarRight = spawnedBuilding
-#	connectSignals(spawnedBuilding)
-#	add_child(spawnedBuilding)
-
 func connectSignals(building):
 	var vN: VisibilityNotifier2D = building.get_node("VisibilityNotifier2D")
 	vN.connect("viewport_exited", self, "onBuildingExitedScreen", [building])
@@ -62,12 +55,13 @@ func set_visibleHeightPercentage(val):
 	setVerticalPosition()
 
 func set_mirrorDistance(val):
-	mirrorDistance = val
 	resetScene()
+	mirrorDistance = val
 	fillHorizontalSpace($Sprite)
 
 func resetScene():
 	for c in get_children():
+		print(c)
 		if c != $Sprite:
 			c.queue_free()
 	
