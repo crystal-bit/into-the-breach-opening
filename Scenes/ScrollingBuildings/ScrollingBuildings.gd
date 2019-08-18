@@ -5,6 +5,7 @@ export(Texture) var buildingTexture
 export(float) var speed = 0.8
 export(float) var mirrorDistance = 200
 export(bool) var activate = false
+export(float, 0, 1, 0.05) var visibleHeightPercentage = 1
 
 var amountScrolled = 0
 var spriteOnTheFarRight: Sprite
@@ -13,6 +14,7 @@ func _ready():
 	$Sprite.texture = buildingTexture
 	updateVisibilityNotifierTo($Sprite)
 	fillHorizontalSpace($Sprite)
+	setVerticalPosition()
 	# TODO: resize VisibilityNotifier to Sprite size
 
 func updateVisibilityNotifierTo(sprite):
@@ -30,6 +32,9 @@ func fillHorizontalSpace(sprite):
 		connectSignals(tileSpr)
 		add_child(tileSpr)
 	spriteOnTheFarRight = previousSpr
+
+func setVerticalPosition():
+	position.y = get_viewport_rect().size.y - 2 * $Sprite.get_rect().size.y * $Sprite.scale.y * visibleHeightPercentage
 
 #func spawnBuilding():
 #	var spawnedBuilding = spriteOnTheFarRight.duplicate(DUPLICATE_USE_INSTANCING)

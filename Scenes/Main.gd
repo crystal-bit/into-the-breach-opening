@@ -9,7 +9,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Spaceship/Sprite/AnimationPlayer.play("idle")
 
 func _on_ScrollingBackground_transition_updated(completionPercentage, _moonXPos):
-	if completionPercentage > 0.7 and $Spaceship.modulate.a == 0:
+	if completionPercentage > 0.55 and $Spaceship.modulate.a == 0:
 		$Spaceship/AnimationPlayer.play("spaceshipArrives")
 		
 		
