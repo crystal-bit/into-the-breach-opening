@@ -3,9 +3,8 @@ extends Node2D
 
 export(Texture) var buildingTexture
 export(float) var speed = 0.8
-export(float) var mirrorDistance = 200
-export(bool) var activate = false
-export(float, 0, 1, 0.05) var visibleHeightPercentage = 1
+export(float, 0, 2000, 1) var mirrorDistance = 200 setget set_mirrorDistance
+export(float, 0, 1, 0.05) var visibleHeightPercentage = 1 setget set_visibleHeightPercentage
 
 var amountScrolled = 0
 var spriteOnTheFarRight: Sprite
@@ -53,18 +52,26 @@ func onBuildingExitedScreen(viewport, building):
 		
 func scroll(amount):
 	amountScrolled += amount
-	
 	if amountScrolled > mirrorDistance:
 		amountScrolled = 0
-	
 	for building in get_children():
 		building.position.x -= amount * speed
 
-func _process(delta):
-	if activate:
-		print("booool")	
-		activate = false
-		_ready()
+func set_visibleHeightPercentage(val):
+	visibleHeightPercentage = val
+	setVerticalPosition()
 
+func set_mirrorDistance(val):
+	mirrorDistance = val
+	resetScene()
+	fillHorizontalSpace($Sprite)
+
+func resetScene():
+	for c in get_children():
+		if c != $Sprite:
+			c.queue_free()
+	
 func _on_ScrollingBackground_transition_updated(completionRate, movement):
 	scroll(-movement)
+	
+	
