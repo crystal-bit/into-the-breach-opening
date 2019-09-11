@@ -7,8 +7,6 @@ func _ready():
 		spaceship.hide()
 	
 	$ProfileName.text = "Profile = " + $OptionsSubmenu.config.get_value("general", "playerName")
-	# TODO
-	$Money.text = "Money = " + str($OptionsSubmenu.config.get_value("general", "money"))
 		
 func _on_MainButtons_optionsButtonClicked():
 	$OptionsSubmenu.show()
