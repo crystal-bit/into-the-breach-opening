@@ -1,5 +1,7 @@
 # Into the Breach inspired Opening Scene 
 
+- **Video tutorial** [ITA :it:]: https://youtu.be/fnoeNnzwr3I
+
 #### Made with Godot 3.1
 
 Opening scene recreated for a tutorial.
